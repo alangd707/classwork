@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item-1 {
+            grid-area: header;
+            justify-items: end;
+        }
+        .item-2 {
+            grid-area: main;
+        }
+        .item-3 {
+            grid-area: navbar;
+        }
+        .item-4 {
+            grid-area: article;
+        }
+        .item-5 {
+            grid-area: sidebar;
+        }
+        .item-6 {
+            grid-area: aside;
+        }
+        .item-7 {
+            grid-area: footer;
+        }
+        .container {
+            display: grid;
+            gap: 5px;
+            grid-template-columns: 100px 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px 100px 100px;
+            border: 3px solid blue;
+            grid-template-areas:
+                "header header header ."
+                "main main navbar navbar"
+                "main main article sidebar"
+                "aside . . sidebar"
+                ". footer footer footer";
+        }
+        
+        div {
+            border: 3px solid purple;
+            padding: 5px;
+        }   
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item-1 item">
+            <img src="./images/download.png" alt="test">
+        </div>
+        <div class="item-2 item">Main</div>
+        <div class="item-3 item">Navbar</div>
+        <div class="item-4 item">Article</div>  
+        <div class="item-5 item">Sidebar</div>
+        <div class="item-6 item">Aside</div>
+        <div class="item-7 item">Footer</div>
+    </div>
+</body>
+</html>

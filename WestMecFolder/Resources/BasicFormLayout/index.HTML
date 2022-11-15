@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./canvasStyling.css"/>
+</head>
+<body>
+    <form>
+        <h1>Payment form</h1>
+        <p>Required fields are followed by <u>*</u></p>
+        <h2>Contact information</h2>
+        <fieldset>
+            <legend>Title</legend>
+            <input type="radio" name="card" value="Ace">
+            <label>Ace</label><br>
+            <input type="radio" name="card" value="King">
+            <label>King</label><br>
+            <input type="radio" name="card" value="Queen">
+            <label>Queen</label><br>
+
+        </fieldset>
+        <label>Name: <abbr title = "First only">*</abbr></label>
+        <input type="textbox"><br>
+        <label>E-Mail: <abbr title="E-Mail used with card">*</abbr></label>
+        <input type="textbox"><br>
+        <label>Password: <abbr title="Password for E-Mail">*</abbr></label>
+        <input type="textbox"><br>
+
+        <h2>Payment information</h2>
+        <label>Card type: <abbr title="Whichever card type you have.">*</abbr></label>
+        <select name="cardType">
+            <option value="Visa" selected>Visa</option>
+            <option value="Mastercard">Mastercard</option>
+            <option value="Discover">Discover</option>
+        </select><br>
+        <label>Card number: <abbr title="Long number on front of card">*</abbr></label>
+        <input type="textbox"><br>
+        <label>Expiration date: <abbr title="Date on back of card. Formatted MM/DD/YYYY">*</abbr></label>
+        <input type="date"> <br>
+        <button type="reset">Validate payment</button>
+
+    </form>
+
+    <script src="canvasEdior.js" ></script>
+</body>
+</html>

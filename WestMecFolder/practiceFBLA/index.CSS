@@ -1,0 +1,21 @@
+body {
+    color:#fff;
+    background-color: #000;
+    margin: 0px;
+    padding: 0px;
+    font-family: arial;
+}
+
+button {
+    outline:none;
+}
+#load {
+    font-size: 3em;
+}
+#load.screen {
+    animation: fadeIn 2s infinite alternate;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0;}
+}

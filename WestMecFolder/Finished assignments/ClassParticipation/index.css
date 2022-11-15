@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 400px;
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: blue;
+}
+
+h3 {
+    color:gray;
+}
+
+a {
+    color: orange;
+
+}
