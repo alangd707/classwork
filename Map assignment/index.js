@@ -40,17 +40,17 @@ let studentStrings = [
     'Noah Huber: 97%',
     'Dewey Benton: 55%',
     'Ubaid Shannon: 88%',
-    'Todd Chadwick: 81%' ]
+    'Todd Chadwick: 81%' ] // Array of names with test scores that is in a string format however is going to be converted into object format with next variable.
 let students = studentStrings.map((element) => {
     let tempArray = element.split(': ')
     return {name: tempArray[0], score: tempArray[1]};
-})
+}) // Makes an array of objects that sorts name by test score.
 
-console.log('There are ' + students.length + ' students present.')
+console.log('There are ' + students.length + ' students present.') // Displays the amount of students.
 
 students.map((element) => {
     console.log(element.name)
-})
+}) // Lists each student who is present in the list at the moment.
 
 let newStudentString = [
     'Isobella Moyer: 95%',
@@ -61,21 +61,56 @@ let newStudentString = [
     'Alec Peterson: 100%',
     'Letitia Benitez: 67%',
     'Elicia Hoover: 55%'
-]
+] // Added on names/scores
 newStudentString.map((element) => {
     let tempArray = element.split(': ')
     students.push({name: tempArray[0], score: tempArray[1]});
-})
+}) // Pushes the newly added names to the list of students and their scores.
 students.map((element) => {
     element.score.replaceAll('%','')
-    return parseInt(element.score)
-})
-console.log(students)
+    element.score = parseInt(element.score)
+}) // Replaces the '%' letter on each object's test score value.
 let totalGrade = 0
-let totalGradeLevel = 0
+let totalGradeLevel = 0 // Initial variables for calculating percentage of answers gotten correctly.
 for (let i = 0; i < students.length; i++) {
     totalGradeLevel += students[i].score
     totalGrade = totalGradeLevel / (i + 1)
-}
+} // Does the math to convert and eventually display the mean average grade achieved on the test.
 console.log('Grade average: ' + totalGrade + '%')
-
+console.log('Grades with removed top 4 and bottom 4:')
+let secondList = students.map(i => {
+    let secondItteration = students.map(j => {
+        if (i.score >= j.score && students.indexOf(i) != students.indexOf(j)) {
+            return true
+        } else {
+            return false
+        }
+    })
+    return secondItteration
+}) // Checks each value's relation to each other value depending on size relative to it, if greater then true, if less then false. Used to determine if it is in the top 4 or bottom 4 for values later on.
+secondList.map(element => {
+    let greaterThan = 0
+    let lessThan = 0
+    element.map(y => {
+        if (y) {
+            greaterThan++
+        } else {
+            lessThan++
+        }
+    })
+    if (greaterThan < 5 || lessThan < 5) {
+        secondList.splice(secondList.indexOf(element), 1, false)
+    } else {
+        secondList.splice(secondList.indexOf(element), 1, true);
+    } 
+}) // If a value is polarized being the top 4 or bottom 4, it will be displayed as false in the secondList which tracks not only the specific values it is in relation to others but also to eventually remove from the whole student list altogether.
+students.map(element => {
+    if (secondList[students.indexOf(element)] === false) {
+        students.splice(students.indexOf(element), 1, false);
+    }
+}) // Deletes the specific element that is top 4 or bottom 4.
+students.map(element => {
+    if (element.score != undefined) {
+        console.log(element.score)
+    }
+}) // Logs the values of the non removed values.
