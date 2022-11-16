@@ -5,68 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        body {
-            margin: 0px;
-            padding: 0px;
-        }
-        h1,h2,h3,h4,h5,h6 {
-            margin: 8px;
-            text-align: center;
-        }
-        .item-a {
-            grid-area: header;
-            background-color:white;
-            border-bottom: 6px solid black;
-        }   
-        .item-b {
-            grid-area: main;
-            padding: 10px;
-            background-color:white;
-        }
-        .item-c {
-            grid-area: sidebar;
-            background-color:white;
-            border-right: 3px solid black;
-        }
-        .item-d {
-            grid-area: footer;
-            background-color:white;
-            border-top:6px solid black;
-        }
-        .unbold {
-            font-weight: 3;
-        }
-        .container {
-            display:grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: 100px 800px 100px;
-            grid-template-areas:
-                "header header header header"
-                "sidebar main main main"
-                "footer footer footer footer";
-        }
-
-    </style>
-    <!-- <link rel="stylesheet" href="style.css"> -->
 </head>
 <body>
-    <div class="container">
-        <div class="item item-a">
-            <h1>Welcome!</h1>
-            <h4 class="unbold">Made by Andrew</h4>
-        </div>
-        <div class="item item-b">
-            <h2>Lorem?</h2>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus quia possimus praesentium quod delectus minima quidem, magnam placeat eveniet ut optio tempora deserunt voluptatem officia ipsum esse asperiores natus eum sed? Fuga deserunt obcaecati rerum itaque magnam cupiditate libero, incidunt nesciunt! Voluptate, tempora! Quam asperiores porro deserunt. Dolor officiis voluptate fugiat totam est quae alias delectus dolore sed nostrum iste minus odit, eveniet ut ex cum quos obcaecati deserunt. Laboriosam quo rerum officiis mollitia quia exercitationem a hic unde, laudantium expedita, quibusdam voluptate consectetur, quod ipsum aperiam ea nemo voluptatibus corporis? Necessitatibus optio excepturi recusandae nihil nesciunt voluptas nostrum repellat!</div>
-        <div class="item item-c">
-            <ul>
-                <h3><center>Table of Contents</center></h3>
-                <li>Place</li>
-                <li>Place2</li>
-            </ul>
-        </div>
-        <div class="item item-d"></div>
+    <div style="position: relative; display: inline;">Welcome!</div>
+    <div style="position: relative; display: inline;">
+        How is the Internet different from the Web?
+        <img src="./images/hqdefault.png" alt="idk" style="float: left;" height = "70px">
+        <p>The Internet is a network of networks, defined by the TCP/IP standards.</p>
+        <p>The Web is an information space.</p>
     </div>
 </body>
 </html>
