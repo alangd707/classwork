@@ -41,13 +41,7 @@ function deleteInput(type) {
 } // Called for both delete buttons, if it's AC it clears entire user input, if not it clears only the number that is being operated on.
 
 function negative() {
-    if (Number(expression[expression.length - 1])) {
-        if (!expression[expression.length - 1].includes('-')) {
-            expression[expression.length - 1] = '-' + expression[expression.length - 1]
-        } else {
-            expression[expression.length - 1].replace('-', '')
-        }
-    }
+    if (Number(expression[expression.length - 1])) {expression[expression.length - 1] = '' + (0 - expression[expression.length - 1])}
     updateInterface()
 } // Makes the currently being operated number a negative.
 
@@ -57,40 +51,38 @@ function equals() {
             let initialIndex = expression.indexOf(y)
             if (y === '^') {
                 expression[initialIndex] = "" + (Number(expression[initialIndex - 1]) ** Number(expression[initialIndex + 1]))
-                expression.splice(initialIndex + 1, 1)
-                expression.splice(initialIndex - 1, 1)
+                clearOperatedNumbers(initialIndex)
             }
         })
         expression.forEach((y) => {
             let initialIndex = expression.indexOf(y)
             if (y === 'x') {
                 expression[initialIndex] = "" + (Number(expression[initialIndex - 1]) * Number(expression[initialIndex + 1]))
-                expression.splice(initialIndex + 1, 1)
-                expression.splice(initialIndex - 1, 1)
+                clearOperatedNumbers(initialIndex)
             } else if (y === '/') {
                 expression[initialIndex] = "" + (Number(expression[initialIndex - 1]) / Number(expression[initialIndex + 1]))
-                expression.splice(initialIndex + 1, 1)
-                expression.splice(initialIndex - 1, 1)
+                clearOperatedNumbers(initialIndex)
             }
         })
         expression.forEach((y) => {
             let initialIndex = expression.indexOf(y)
             if (y === '+') {
                 expression[initialIndex] = "" + (Number(expression[initialIndex - 1]) + Number(expression[initialIndex + 1]))
-                expression.splice(initialIndex + 1, 1)
-                expression.splice(initialIndex - 1, 1)
+                clearOperatedNumbers(initialIndex)
             } if (y === '-') {
                 expression[initialIndex] = "" + (Number(expression[initialIndex - 1]) - Number(expression[initialIndex + 1]))
-                expression.splice(initialIndex + 1, 1)
-                expression.splice(initialIndex - 1, 1)
+                clearOperatedNumbers(initialIndex)
             }
         })
+        function clearOperatedNumbers(x) {
+            expression.splice(x + 1, 1)
+            expression.splice(x - 1, 1)
+        }
     }
     updateInterface()
 } // Using PEMDAS, changes the value of the user input which can contain multiple operators to calculate in a single time each expression using PEMDAS.
 
 function updateInterface() {
-    console.log(expression)
     display.innerHTML = expression.join(' ')
 } // Updates the display.
 
