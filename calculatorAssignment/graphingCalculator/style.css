@@ -2,9 +2,9 @@ body {
     margin: 5px;
 }
 #canvas {
-    border: 2px solid black;
     height:500px;
     width:500px;
+    margin: 0px;
 }
 .input {
     width: 450px;
