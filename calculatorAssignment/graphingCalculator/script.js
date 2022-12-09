@@ -51,12 +51,7 @@ function getUserInput() {
     for (let i = 0; i < userInput.length; i++) {
         if (userInput[i] === '+' || userInput[i] === '-' || userInput[i] === '*' || userInput[i] === '/') {
             let operator = userInput[i];
-            if (typeof(userInput) == 'string') {
-                userInput.split(String(operator))
-                console.log(userInput)
-                userInput.splice(1, 0, operator)
-            }
-
+            userInput.slice()
         }
     }
     console.log(userInput)
